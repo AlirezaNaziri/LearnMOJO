@@ -1,0 +1,34 @@
+{
+    "name": "My MOJO Sandbox Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "mojo", // This should match the service name in docker-compose.yml
+    "workspaceFolder": "/mojo", // The folder where your code will be located inside the container
+
+    // Settings to apply inside the container
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        // Add additional VS Code settings that you want to be automatically applied to the development environment
+        "editor.tabSize": 4,
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true        
+    },
+
+    // Extensions to install in the container when it is created
+    "extensions": [
+        "modular-mojotools.vscode-mojo",
+        "ms-python.python",
+        "dbaeumer.vscode-eslint",
+        // List any additional extensions that you might need for your development
+        "esbenp.prettier-vscode",
+        "github.vscode-pull-request-github"
+    ],
+
+     // Forward local ports to the container
+    "forwardPorts": [8888, 8888]
+
+    // Use 'postCreateCommand' to run commands after the container is created
+    // "postCreateCommand": "pip install -r requirements.txt",
+
+    // Uncomment to connect as a non-root user, if needed
+    // "remoteUser": "vscode"
+}
